@@ -12,24 +12,40 @@
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+			
+		<style>
+			.projet  {
+				border : 1px solid grey;
+				margin-top : 20px;
+			}
+			
+			.phpinfo {	
+				margin-top : 20px;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
+			<div class="col-md-4 phpinfo">
+				<?php echo phpinfo(); ?>
+			</div>
+			<div class="col-md-4 projet">
+				<center><h1>Les projets</h1></center>
 				<?php
 					$dir    	= '.';
-					$exclude	= array(".", "..", ".metadata", "index.php", "RemoteSystemsTempFiles", "favicon.ico");
+					$exclude	= array(".", "..", ".metadata", "index.php", "RemoteSystemsTempFiles", "favicon.ico", ".git", "README.md");
 					$files 		= array_diff(scandir($dir), $exclude);
 					/*
 			 		* DEBUG MODE
 			 		*/
 					//	print_r($files);
 					for ($i = 0; $i < 100; $i++ ) {
+						if (!empty($files[$i])) {
 				?>
 						<a href="<?php echo $files[$i]; ?>"><?php echo $files[$i]; ?></a>
-						<br />
+						<hr />
 				<?php 
+						}
 					}
 				?>
 			</div>
