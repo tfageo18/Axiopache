@@ -31,6 +31,7 @@
 			</div>
 			<div class="col-md-4 projet">
 				<center><h1>Les projets</h1></center>
+				<hr />
 				<?php
 					$dir    	= '.';
 					$exclude	= array(".", "..", ".metadata", "index.php", "RemoteSystemsTempFiles", "favicon.ico", ".git", "README.md");
@@ -42,7 +43,7 @@
 					for ($i = 0; $i < 100; $i++ ) {
 						if (!empty($files[$i])) {
 				?>
-						<a href="<?php echo $files[$i]; ?>"><?php echo $files[$i]; ?></a>
+						<center><a href="<?php echo $files[$i]; ?>"><h2><?php echo $files[$i]; ?></h2></a></center>
 						<hr />
 				<?php 
 						}
